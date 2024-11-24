@@ -44,4 +44,72 @@
     </form>
 </div>
 
+<style>
+    /* Các chỉnh sửa thêm */
+    body {
+        font-family: 'Inter', sans-serif;
+    }
+
+    .sidebar {
+        background-color: #EDECEC;
+        color: #1F3A56;
+        padding: 40px auto;
+        text-align: center;
+        height: auto;
+        text-align: justify;
+    }
+
+    .sidebar h3 {
+        font-size: 26px;
+        margin-top: 90px;
+    }
+
+    .info h4 {
+        font-size: 22px;
+    }
+
+    .sidebar input {
+        font-size: 18px;
+        width: 80%;
+        height: 60px;
+        border-radius: 12px;
+        border: 2px solid #1F3A56;
+        color: #1F3A56;
+        margin: 30px 0;
+    }
+
+    .sidebar input:hover {
+        background-color: #1F3A56;
+        color: white;
+    }
+
+    .forms input {
+        width: 80%;
+        height: 60px;
+        padding: 16px;
+        margin: 15px auto;
+        font-size: 16px;
+        background-color: white;
+        border: 2px solid #1F3A56;
+        border-radius: 50px;
+    }
+
+    .forms h2 {
+        margin: 40px 0px 40px 100px;
+    }
+
+    .button-not-dark-blue:hover {
+        background-color: #1F3A56;
+        color: white;
+    }
+
+    .button-not-dark-blue {
+        background-color: white;
+        color: #1F3A56;
+        border-radius: 7px;
+    }
+</style>
+
+
+
 <?php include_once ROOT_DIR . "views/admin/footer.php" ?>

@@ -47,6 +47,7 @@ class AdminProductController
     public function update()
     {
         $data = $_POST;
+        var_dump($data);
 
         // Lấy sản phẩm hiện tại
         $product = new Product;
@@ -67,7 +68,8 @@ class AdminProductController
         $data['image'] = $image;
         $product->update($data['id'], $data);
 
-        header("location: " . ADMIN_URL . "?ctl=editsp&id=" . $data['id']);
+        //header("location: " . ADMIN_URL . "?ctl=editsp&id=" . $data['id']);
+        header("location: " . ADMIN_URL . "?ctl=listsp");
         die;
     }
 }
