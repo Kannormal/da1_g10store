@@ -116,10 +116,10 @@
                         <input type="text" name="name" id="" class="form-control" placeholder="Nhập tên sản phẩm ở đây">
                     </div>
                     <div class=" form-group">
-                        <input type="file" name="image" id="" class="form-control">
+                        <input type="file" name="image" id="" class="form-control" placeholder="Nhập ảnh sản phẩm ở đây">
                     </div>
                     <div class="form-group">
-                        <select name="category_id" id="" class="form-control">
+                        <select name="category_id" id="" class="form-control" placeholder="Nhập danh mục sản phẩm ở đây">
                             <?php foreach ($categories as $cate): ?>
                                 <option value="<?= $cate['ID'] ?>">
                                     <?= $cate['cate_name'] ?>
@@ -128,10 +128,10 @@
                         </select>
                     </div>
                     <div class="form-group">
-                        <input type="number" name="price" id="" class="form-control">
+                        <input type="number" name="price" id="" class="form-control" placeholder="Nhập giá sản phẩm ở đây">
                     </div>
                     <div class="form-group">
-                        <input type="number" name="quantity" id="" class="form-control">
+                        <input type="number" name="quantity" id="" class="form-control" placeholder="Nhập số lượng sản phẩm ở đây">
                     </div>
                     <div class="form-group">
                         <input type="radio" name="status" value="1" checked id="">
@@ -140,7 +140,7 @@
                         <label for="status">Ngừng Kinh Doanh</label>
                     </div>
                     <div class="form-group">
-                        <textarea name="description" rows="6" class="form-control"></textarea>
+                        <textarea name="description" rows="6" class="form-control" placeholder="Nhập mô tả sản phẩm ở đây"></textarea>
                     </div>
                     <input type="submit" value="Thêm Sản Phẩm ->" class="btn button-not-dark-blue ">
                 </form>
