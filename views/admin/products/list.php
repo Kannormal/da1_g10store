@@ -65,6 +65,7 @@
                     <th scope="col">Quantity</th>
                     <th scope="col">Status</th>
                     <th scope="col">Category</th>
+                    <th scope="col">Description</th>
                     <th scope="col">Update?</th>
                 </tr>
             </thead>
@@ -80,6 +81,7 @@
                         <td><?= $product['quantity'] ?></td>
                         <td><?= $product['status'] ? 'Đang kinh doanh' : 'Ngừng kinh doanh' ?></td>
                         <td><?= $product['cate_name'] ?></td>
+                        <td><?= $product['description'] ?></td>
                         <td>
                             <a href="<?= ADMIN_URL . '?ctl=editsp&id=' . $product['id'] ?>" class="btn btn-dark button-not-dark-blue">Cập nhật</a>
                         </td>

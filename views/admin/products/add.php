@@ -1,49 +1,5 @@
 <?php include_once ROOT_DIR . "views/admin/header.php" ?>
 
-<div>
-    <form action="<?= ADMIN_URL . '?ctl=storesp' ?>" method="post" enctype="multipart/form-data">
-        <div class="mb-3">
-            <label for="">Tên sản phẩm</label>
-            <input type="text" name="name" id="" class="form-control">
-        </div>
-        <div class="mb-3">
-            <label for="">Danh mục</label>
-            <select name="category_id" id="" class="form-control">
-                <?php foreach ($categories as $cate): ?>
-                    <option value="<?= $cate['ID'] ?>">
-                        <?= $cate['cate_name'] ?>
-                    </option>
-                <?php endforeach ?>
-            </select>
-        </div>
-        <!-- <div class="mb-3">
-            <label for="">Hình ảnh</label>
-            <input type="file" name="image" id="" class="form-control">
-        </div> -->
-        <div class="mb-3">
-            <label for="">Giá</label>
-            <input type="number" name="price" id="" class="form-control">
-        </div>
-        <div class="mb-3">
-            <label for="">Số lượng</label>
-            <input type="number" name="quantity" id="" class="form-control">
-        </div>
-
-        <div class="mb-3">
-            <label for="">Trạng thái</label> <br>
-            <input type="radio" name="status" value="1" checked id=""> Đang kinh doanh
-            <input type="radio" name="status" value="0" id=""> Ngừng kinh doanh
-        </div>
-        <div class="mb-3">
-            <label for="">Mô tả sản phẩm</label>
-            <textarea name="description" rows="6" class="form-control"></textarea>
-        </div>
-        <div class="mb-3">
-            <button type="submit" class="btn btn-primary">Thêm mới</button>
-        </div>
-    </form>
-</div>
-
 <style>
     /* Các chỉnh sửa thêm */
     body {
@@ -83,19 +39,50 @@
         color: white;
     }
 
-    .forms input {
+    .forms select {
         width: 80%;
         height: 60px;
         padding: 16px;
-        margin: 15px auto;
+        margin: 15px;
         font-size: 16px;
         background-color: white;
         border: 2px solid #1F3A56;
         border-radius: 50px;
     }
 
+
+    .forms input {
+        width: 80%;
+        height: 60px;
+        padding: 16px;
+        margin: 15px;
+        font-size: 16px;
+        background-color: white;
+        border: 2px solid #1F3A56;
+        border-radius: 50px;
+    }
+
+    .forms input[type="radio"] {
+        width: 10%;
+        height: 30px;
+        background-color: white;
+        border: 2px solid #1F3A56;
+        border-radius: 50px;
+    }
+
+    .forms textarea {
+        width: 80%;
+        height: 120px;
+        padding: 16px;
+        margin: 15px;
+        font-size: 16px;
+        background-color: white;
+        border: 2px solid #1F3A56;
+        border-radius: 20px;
+    }
+
     .forms h2 {
-        margin: 40px 0px 40px 100px;
+        margin: 40px 15px;
     }
 
     .button-not-dark-blue:hover {
@@ -109,6 +96,63 @@
         border-radius: 7px;
     }
 </style>
+
+<div class="container-fluid">
+    <div class="row">
+        <!-- Sidebar -->
+        <div class="col-md-3 sidebar ">
+            <h3>Thêm sẩn phẩm mới</h3>
+            <a href="<?= ADMIN_URL . '?ctl=listsp' ?>">
+                <input type="button" value="Về Danh sách ->" class="btn button-not-dark-blue ">
+            </a>
+        </div>
+
+        <!-- Content -->
+        <div class="col-md-9 content">
+            <div class="forms">
+                <h2>Thêm Sản phẩm</h2>
+                <form action="<?= ADMIN_URL . '?ctl=storesp' ?>" method="post" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <input type="text" name="name" id="" class="form-control" placeholder="Nhập tên sản phẩm ở đây">
+                    </div>
+                    <div class=" form-group">
+                        <input type="file" name="image" id="" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <select name="category_id" id="" class="form-control">
+                            <?php foreach ($categories as $cate): ?>
+                                <option value="<?= $cate['ID'] ?>">
+                                    <?= $cate['cate_name'] ?>
+                                </option>
+                            <?php endforeach ?>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <input type="number" name="price" id="" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <input type="number" name="quantity" id="" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <input type="radio" name="status" value="1" checked id="">
+                        <label for="status">Đang Kinh Doanh</label>
+                        <input type="radio" name="status" value="0" id="">
+                        <label for="status">Ngừng Kinh Doanh</label>
+                    </div>
+                    <div class="form-group">
+                        <textarea name="description" rows="6" class="form-control"></textarea>
+                    </div>
+                    <input type="submit" value="Thêm Sản Phẩm ->" class="btn button-not-dark-blue ">
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Thêm script Bootstrap -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
 
 

@@ -115,7 +115,7 @@
         <div class="col-md-9 content">
             <div class="forms">
                 <h2>Sửa Sản phẩm</h2>
-                <form action="<?= ADMIN_URL . '?ctl=updatesp&id=' . $product['id'] ?>" method="post">
+                <form action="<?= ADMIN_URL . '?ctl=updatesp&id=' . $product['id'] ?>" method="post" enctype="multipart/form-data">
                     <div class="form-group">
                         <input type="text" name="name" class="form-control"
                             placeholder="Nhập tên sản phẩm ở đây" value="<?= $product['name'] ?>">
