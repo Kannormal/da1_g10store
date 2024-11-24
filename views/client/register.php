@@ -5,168 +5,96 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trang Đăng Ký</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <style>
-    body {
-        background-color: aqua;
-        margin: 0px auto;
-        font-family: Inter;
-        width: 1440px;
-        background-image: url("img/dien-thoai-co-man-hinh-dep-nhat-xtmobile.jpg");
-        background-size: cover;
-        background-position: center;
-    }
-
-    .container {
-        width: 90%;
-        height: 755px;
-        margin: auto;
-        display: flex;
-    }
-
-    .logo {
-        width: 45%;
-        height: 20%;
-        text-align: center;
-        margin: 300px 5% 300px 0%;
-        -webkit-user-select: none;
-        pointer-events: none;
-        -webkit-user-drag: none;
-
-
-    }
-
-    .logo img {
-        width: 70%;
-        margin: auto;
-        -webkit-user-select: none;
-    }
-
-    .forms {
-        width: 40%;
-        height: auto;
-        margin: auto 5%;
-        background-color: white;
-        border: 3px solid #1F3A56;
-        border-radius: 20px;
-
-        text-align: center;
-    }
-
-    .forms .links {
-        width: 80%;
-        height: 35px;
-        margin: 20px auto;
-        display: flex;
-        justify-content: left;
-
-    }
-
-    .links a {
-        font-size: 16px;
-        line-height: 35px;
-        margin-right: auto;
-        text-decoration: none;
-        color: #1F3A56;
-    }
-
-    .links a:hover {
-        text-decoration: underline;
-    }
-
-    .forms h2 {
-        font-size: 35px;
-        line-height: 40px;
-    }
-
-    .forms form {
-        width: 80%;
-        height: auto;
-        margin: 10px auto;
-
-
-    }
-
-    form input {
-        width: 70%;
-        height: 20px;
-        padding: 15px;
-        margin: 15px;
-        background-color: white;
-        border: 2px solid #1F3A56;
-        border-radius: 50px;
-    }
-
-    .forms .check {
-        width: 70%;
-        margin: 0px auto;
-    }
-
-    .check a {
-        color: #1F3A56;
-        text-decoration: none;
-    }
-
-    .check a:hover {
-        text-decoration: underline;
-    }
-
-
-    .forms input[type="button"] {
-        width: 135px;
-        height: 50px;
-        border: 2px solid #1F3A56;
-        border-radius: 12px;
-        font-size: 18px;
-        color: #1F3A56;
-        background-color: white;
-        margin: 20px auto;
-    }
-
-    .forms input[type="button"]:hover {
-        width: 135px;
-        height: 50px;
-        border: 2px solid #1F3A56;
-        border-radius: 12px;
-        font-size: 18px;
-        color: white;
+    .button-not-dark-blue:hover {
         background-color: #1F3A56;
-        margin: 20px auto;
+        color: white;
+    }
+
+    .button-not-dark-blue {
+        background-color: white;
+        color: #1F3A56;
+        border-radius: 7px;
+    }
+
+    .text-dark-blue {
+        color: #1F3A56;
+    }
+
+    .form-check-input:checked {
+        background-color: #1F3A56;
+        /* Màu nền khi chọn */
+        border-color: #1F3A56;
+        /* Màu viền khi chọn */
+    }
+
+    /* Thay đổi màu khi hover lên checkbox */
+    .form-check-input:hover {
+        border-color: #1F3A56;
+        /* Màu viền khi hover */
     }
 </style>
 
-<body>
-    <div class="container">
-        <div class="logo">
-            <img src="img/G10 store - LOGO-.png" alt="">
-        </div>
-        <div class="forms">
-            <div class="links">
-                <a href="<?= ROOT_URL  ?>"> <- Quay Lại </a>
-                        <div class="link">
-                            Đã có tài khoản ?
-                            <a href="<?= ROOT_URL .'?ctl=login' ?>">Đăng nhập</a>
-                        </div>
+<body
+    style="background-image: url('img/dien-thoai-co-man-hinh-dep-nhat-xtmobile.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;">
+    <div class="container d-flex justify-content-center align-items-center min-vh-100">
+        <div class="row w-100 justify-content-center">
+            <!-- Logo Section -->
+            <div class="col-md-5 text-center my-auto mx-5">
+                <img src="img/G10 store - LOGO-.png" class="img-fluid" alt="Logo">
             </div>
-            <h2>Đăng Ký</h2>
-            <form action="" method="post">
-                <input type="text" name="name" placeholder="Nhập tên tài khoản ở đây" required>
-                <input type="text" name="user" placeholder="Nhập tên đăng nhập ở đây" required>
-                <input type="text" name="email" placeholder="Nhập email ở đây" required>
-                <input type="text" name="number" placeholder="Nhập số điện thoại ở đây" required>
-                <input type="password" name="password" placeholder="Nhập mặt khẩu ở đây" required>
-                <input type="password" name="repassword" placeholder="Nhập lại mặt khẩu ở đây" required>
-            </form>
-            <div class="check">
-                <input type="checkbox" name="check" id="" aria-label="check" style="width: 15px; height: 15px;" required>
-                <label for="check">Tôi Đồng ý Với</label>
-                <a href="#">Điều khoản và dịch vụ </a>
+
+            <!-- Registration Form Section -->
+            <div class="col-md-4 bg-white p-4 rounded-3 border border-2 border-dark mt-4">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <a href="<?= ROOT_URL  ?>" class="text-decoration-none text-dark-blue">← Quay lại</a>
+                    <div>
+                        <span>Đã có tài khoản? </span>
+                        <a href="<?= ROOT_URL . '?ctl=login' ?>" class="text-decoration-none text-dark-blue">Đăng nhập</a>
+                    </div>
+                </div>
+                <h2 class="text-center mb-4">Đăng Ký</h2>
+                <form action="" method="post">
+                    <div class="mb-3">
+                        <input type="text" class="form-control" name="name" placeholder="Nhập tên tài khoản ở đây">
+                    </div>
+                    <div class="mb-3">
+                        <input type="text" class="form-control" name="user" placeholder="Nhập tên đăng nhập ở đây">
+                    </div>
+                    <div class="mb-3">
+                        <input type="email" class="form-control" name="email" placeholder="Nhập email ở đây">
+                    </div>
+                    <div class="mb-3">
+                        <input type="text" class="form-control" name="number" placeholder="Nhập số điện thoại ở đây">
+                    </div>
+                    <div class="mb-3">
+                        <input type="password" class="form-control" name="password" placeholder="Nhập mặt khẩu ở đây">
+                    </div>
+                    <div class="mb-3">
+                        <input type="password" class="form-control" name="repassword"
+                            placeholder="Nhập lại mặt khẩu ở đây">
+                    </div>
+
+                    <!-- Checkbox for terms and conditions -->
+                    <div class="form-check mb-3">
+                        <input type="checkbox" class="form-check-input" name="check" id="check" aria-label="check">
+                        <label class="form-check-label" for="check">Tôi Đồng ý Với <a href="#"
+                                class="text-decoration-none text-dark-blue">Điều khoản và dịch vụ</a></label>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <button type="submit" class="btn btn-outline-dark w-100 py-2 fs-5 button-not-dark-blue">Đăng
+                        Ký</button>
+                </form>
             </div>
-            <input type="button" value="Đăng ký" name="submit">
-
-
         </div>
     </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>

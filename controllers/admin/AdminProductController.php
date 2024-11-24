@@ -59,7 +59,7 @@ class AdminProductController
 
         $image = '';
         $file = $_FILES['image'];
-        if ($file['size']>0) {
+        if ($file['size'] > 0) {
             $image = "img/" . $file['name'];
             move_uploaded_file($file['tmp_name'], ROOT_DIR . $image);
         }

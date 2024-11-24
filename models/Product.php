@@ -9,7 +9,7 @@ class Product extends BaseModel
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
-       //Lấy danh sách sản phẩm theo danh mục
+    //Lấy danh sách sản phẩm theo danh mục
     //@id mã danh mục
     public function listProductInCategory($id)
     {
@@ -36,14 +36,15 @@ class Product extends BaseModel
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
-//Thêm dữ liệu
-public function create($data)
-{
-    $sql = "INSERT INTO products(name,image , price, quantity, description, category_id, status) VALUES(:name, :image, :price, :quantity, :description, :category_id, :status)";
+    //Thêm dữ liệu
+    public function create($data)
+    {
+        var_dump($data);
+        $sql = "INSERT INTO products(name, price, quantity, description, category_id, status) VALUES(:name, :price, :quantity, :description, :category_id, :status)";
 
-    $stmt = $this->conn->prepare($sql);
-    $stmt->execute($data);
-}
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute($data);
+    }
     //Cập nhật
     public function update($id, $data)
     {
@@ -55,39 +56,28 @@ public function create($data)
         $stmt->execute($data);
     }
 
-//lấy ra 1 bản ghi
-public function find($id)
-{
-    $sql = "SELECT * FROM products WHERE id=:id";
-    $stmt = $this->conn->prepare($sql);
-    $stmt->execute(['id' => $id]);
-    return $stmt->fetch(PDO::FETCH_ASSOC);
-}
-//Xóa sản phẩm
-public function delete($id)
-{
-    $sql = "DELETE FROM products WHERE id=:id";
-    $stmt = $this->conn->prepare($sql);
-    $stmt->execute(['id' => $id]);
-}
+    //lấy ra 1 bản ghi
+    public function find($id)
+    {
+        $sql = "SELECT * FROM products WHERE id=:id";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute(['id' => $id]);
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
+    //Xóa sản phẩm
+    public function delete($id)
+    {
+        $sql = "DELETE FROM products WHERE id=:id";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute(['id' => $id]);
+    }
 
-//Tìm kiếm sp theo tên
-public function search($keyword = null){
-    $sql = "SELECT * FROM products WHERE name LIKE '%$keyword%'";
-    $stmt = $this->conn->prepare($sql);
-    $stmt->execute();
-    return $stmt->fetchAll(PDO::FETCH_ASSOC);
-}
-
-
-
-
-
-
-
-
-
-
-
-
+    //Tìm kiếm sp theo tên
+    public function search($keyword = null)
+    {
+        $sql = "SELECT * FROM products WHERE name LIKE '%$keyword%'";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
 }

@@ -23,5 +23,6 @@ match ($ctl) {
     'add-cart' => (new CartController)->addCart(),
     'register' => (new HomeController)->register(),
     'login' => (new HomeController)->login(),
+    'banned' => view("errors.banned"),
     default => view("errors.404"),
 };

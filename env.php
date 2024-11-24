@@ -2,6 +2,6 @@
 //Lấy thư mục gốc của file
 const ROOT_DIR = __DIR__ . "/";
 //Lưu đường dẫn website
-const ROOT_URL = "http://localhost/da1_g10store/";
+const ROOT_URL = "http://localhost/da1_g10store/da1_g10store/";
 //Lưu đường dẫn admin
 const ADMIN_URL = ROOT_URL . "admin/";
