@@ -113,9 +113,11 @@
                 </div>
             </div>
             <div class="col">
-                <div class="box p-3">
-                    <h3>Quản lý Bài Viết</h3>
-                </div>
+                <a href="<?= ADMIN_URL . '?ctl=listar' ?>">
+                    <div class="box p-3">
+                        <h3>Quản lý Bài viết</h3>
+                    </div>
+                </a>
             </div>
             <div class="col">
                 <div class="box p-3">

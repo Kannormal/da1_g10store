@@ -7,12 +7,18 @@ require_once __DIR__ . "/../models/BaseModel.php";
 require_once __DIR__ . "/../models/Category.php";
 require_once __DIR__ . "/../models/Product.php";
 require_once __DIR__ . "/../models/ArticleCategory.php";
+require_once __DIR__ . "/../models/Articles.php";
+require_once __DIR__ . "/../models/Accounts.php";
+
+
 
 
 //include controllers
 require_once __DIR__ . "/../controllers/admin/AdminProductController.php";
 require_once __DIR__ . "/../controllers/admin/AdminCategoriesController.php";
 require_once __DIR__ . "/../controllers/admin/AdminArticleCategoriesController.php";
+require_once __DIR__ . "/../controllers/admin/AdminArticleController.php";
+
 
 
 $ctl = $_GET['ctl'] ?? "";
@@ -25,6 +31,12 @@ match ($ctl) {
     'storesp' => (new AdminProductController)->store(),
     'editsp' => (new AdminProductController)->edit(),
     'updatesp' => (new AdminProductController)->update(),
+    //Quản lý bài viết
+    'listar' => (new AdminArticlesController)->index(),
+    'addar' => (new AdminArticlesController)->create(),
+    'storear' => (new AdminArticlesController)->store(),
+    'editar' => (new AdminArticlesController)->edit(),
+    'updatear' => (new AdminArticlesController)->update(),
     // Quản lý Danh mục (Sản Phẩm)
     'listct' => (new AdminCategoriesController)->all(),
     'addct' => (new AdminCategoriesController)->create(),
