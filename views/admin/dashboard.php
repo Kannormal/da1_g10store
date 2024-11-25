@@ -92,9 +92,12 @@
         <!-- Buttons Section -->
         <div class="row row-cols-2 row-cols-md-4 g-3 text-center">
             <div class="col">
-                <div class="box p-3">
-                    <h3>Quản lý Danh Mục</h3>
-                </div>
+                <a href="<?= ADMIN_URL . '?ctl=listct' ?>">
+                    <div class="box p-3">
+                        <h3>Quản lý Danh Mục</h3>
+                    </div>
+                </a>
+
             </div>
             <div class="col">
                 <a href="<?= ADMIN_URL . '?ctl=listsp' ?>">
@@ -131,12 +134,7 @@
             </div>
             <div class="col">
                 <div class="box p-3">
-                    <h3>Quản lý Ảnh</h3>
-                </div>
-            </div>
-            <div class="col mb-4">
-                <div class="box p-3">
-                    <h3>Quản lý Ảnh</h3>
+                    <h3>Đang Phát Triển</h3>
                 </div>
             </div>
         </div>
