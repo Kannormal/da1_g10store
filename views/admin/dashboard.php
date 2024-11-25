@@ -125,9 +125,11 @@
                 </div>
             </div>
             <div class="col">
-                <div class="box p-3">
-                    <h3>Quản lý Bình Luận</h3>
-                </div>
+                <a href="<?= ADMIN_URL . '?ctl=listbl_sp' ?>">
+                    <div class="box p-3">
+                        <h3>Quản lý Bình luận</h3>
+                    </div>
+                </a>
             </div>
             <div class="col">
                 <div class="box p-3">

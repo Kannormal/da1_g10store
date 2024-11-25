@@ -9,6 +9,8 @@ require_once __DIR__ . "/../models/Product.php";
 require_once __DIR__ . "/../models/ArticleCategory.php";
 require_once __DIR__ . "/../models/Articles.php";
 require_once __DIR__ . "/../models/Accounts.php";
+require_once __DIR__ . "/../models/CommentProduct.php";
+
 
 
 
@@ -18,6 +20,8 @@ require_once __DIR__ . "/../controllers/admin/AdminProductController.php";
 require_once __DIR__ . "/../controllers/admin/AdminCategoriesController.php";
 require_once __DIR__ . "/../controllers/admin/AdminArticleCategoriesController.php";
 require_once __DIR__ . "/../controllers/admin/AdminArticleController.php";
+require_once __DIR__ . "/../controllers/admin/AdminCommentProductController.php";
+
 
 
 
@@ -31,6 +35,12 @@ match ($ctl) {
     'storesp' => (new AdminProductController)->store(),
     'editsp' => (new AdminProductController)->edit(),
     'updatesp' => (new AdminProductController)->update(),
+    //Quản lý bình luận sản phẩm
+    'listbl_sp' => (new AdminCommentProductController)->index(),
+    'addbl_sp' => (new AdminCommentProductController)->create(),
+    'storebl_sp' => (new AdminCommentProductController)->store(),
+    'editbl_sp' => (new AdminCommentProductController)->edit(),
+    'updatestatusbl_sp' => (new AdminCommentProductController)->updatestatus(),
     //Quản lý bài viết
     'listar' => (new AdminArticlesController)->index(),
     'addar' => (new AdminArticlesController)->create(),
