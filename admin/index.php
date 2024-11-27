@@ -10,9 +10,11 @@ require_once __DIR__ . "/../models/ArticleCategory.php";
 require_once __DIR__ . "/../models/Articles.php";
 require_once __DIR__ . "/../models/Accounts.php";
 require_once __DIR__ . "/../models/CommentProduct.php";
+require_once __DIR__ . "/../models/CommentArticle.php";
 
 
 
+date_default_timezone_set('Asia/Ho_Chi_Minh');
 
 
 //include controllers
@@ -21,6 +23,8 @@ require_once __DIR__ . "/../controllers/admin/AdminCategoriesController.php";
 require_once __DIR__ . "/../controllers/admin/AdminArticleCategoriesController.php";
 require_once __DIR__ . "/../controllers/admin/AdminArticleController.php";
 require_once __DIR__ . "/../controllers/admin/AdminCommentProductController.php";
+require_once __DIR__ . "/../controllers/admin/AdminCommentArticleController.php";
+
 
 
 
@@ -47,6 +51,12 @@ match ($ctl) {
     'storear' => (new AdminArticlesController)->store(),
     'editar' => (new AdminArticlesController)->edit(),
     'updatear' => (new AdminArticlesController)->update(),
+    ////Quản lý bình luận bài viết(chưa hoàn thiện)
+    'listbl_bv' => (new AdminCommentArticleController)->index(),
+    'addbl_bv' => (new AdminCommentArticleController)->create(),
+    'storebl_bv' => (new AdminCommentArticleController)->store(),
+    'editbl_bv' => (new AdminCommentArticleController)->edit(),
+    'updatestatusbl_bv' => (new AdminCommentArticleController)->updatestatus(),
     // Quản lý Danh mục (Sản Phẩm)
     'listct' => (new AdminCategoriesController)->all(),
     'addct' => (new AdminCategoriesController)->create(),

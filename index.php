@@ -17,6 +17,7 @@ $ctl = $_GET['ctl'] ?? '';
 
 match ($ctl) {
     '', 'home' => (new HomeController)->index(),
+    'product-list' =>(new ProductController)->listAll(),
     'category' => (new ProductController)->list(),
     'search' => (new SearchController)->search(),
     'detail' => (new ProductController)->show(),

@@ -53,11 +53,11 @@
     <div class="container my-5">
         <div class="d-flex justify-content-center mb-4">
             <div class="btn-group">
-                <a href="#" class="btn btn-dark bg-primary-dark-blue rounded-start">Bình luận sản phẩm</a>
-                <a href="<?= ADMIN_URL . "?ctl=listbl_bv" ?>" class="btn btn-outline-dark button-not-dark-blue rounded-end">Bình luận bài viết</a>
+                <a href="<?= ADMIN_URL . "?ctl=listbl_sp" ?>" class="btn btn-dark button-not-dark-blue rounded-start">Bình luận sản phẩm</a>
+                <a href="" class="btn btn-outline-dark bg-primary-dark-blue  rounded-end">Bình luận bài viết</a>
             </div>
         </div>
-        <a href="<?= ADMIN_URL . "?ctl=addbl_sp" ?>"
+        <a href="<?= ADMIN_URL . "?ctl=addbl_bv" ?>"
             class="btn btn-dark button-not-dark-blue" style="margin-bottom: 20px;float: right;">
             Thêm bình luận mới +
         </a>
@@ -66,8 +66,7 @@
                 <tr>
                     <th scope="col">#ID</th>
                     <th scope="col">Author</th>
-                    <th scope="col">Product</th>
-                    <th scope="col">Rated</th>
+                    <th scope="col">Article</th>
                     <th scope="col">Content</th>
                     <th scope="col">Status</th>
                     <th scope="col">Update?</th>
@@ -79,11 +78,10 @@
                         <td scope="row"><?= $comment['ID'] ?></td>
                         <td><?= $comment['user_name'] ?></td>
                         <td><?= $comment['name'] ?></td>
-                        <td><?= $comment['rate'] ?>/5</td>
-                        <td><?= $comment['description'] ?></td>
+                        <td><?= $comment['content'] ?></td>
                         <td><?= $comment['status'] ? 'Được hiện' : 'Bị ẩn' ?></td>
                         <td>
-                            <a href="<?= ADMIN_URL . '?ctl=editbl_sp&id=' . $comment['ID'] ?>" class="btn btn-dark button-not-dark-blue">Cập nhật</a>
+                            <a href="<?= ADMIN_URL . '?ctl=editbl_bv&id=' . $comment['ID'] ?>" class="btn btn-dark button-not-dark-blue">Cập nhật</a>
                         </td>
                     </tr>
                 <?php endforeach ?>

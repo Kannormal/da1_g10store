@@ -142,7 +142,7 @@
                     <div class="form-group">
                         <textarea name="description" rows="6" class="form-control" placeholder="Nhập nội dung bình luận ở đây"></textarea>
                     </div>
-                    <input type="submit" value="Thêm Sản Phẩm ->" class="btn button-not-dark-blue ">
+                    <input type="submit" value="Thêm bình luận ->" class="btn button-not-dark-blue ">
                 </form>
             </div>
         </div>

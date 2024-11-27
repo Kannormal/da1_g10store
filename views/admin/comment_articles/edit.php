@@ -104,10 +104,10 @@
             <h3>Bình luận được sửa</h3>
             <div class="info">
                 <h4>Số id: <?= $comment['ID'] ?></h4>
-                <h4>Tên sản phẩm: <?= $product['name'] ?></h4>
+                <h4>Tên bài viết: <?= $articles['name'] ?></h4>
                 <h4>Tên tài khoản: <?= $account['user_name'] ?></h4>
             </div>
-            <a href="<?= ADMIN_URL . '?ctl=listbl_sp' ?>">
+            <a href="<?= ADMIN_URL . '?ctl=listbl_bv' ?>">
                 <input type="button" value="Về Danh sách ->" class="btn button-not-dark-blue ">
             </a>
         </div>
@@ -116,18 +116,14 @@
         <div class="col-md-9 content">
             <div class="forms">
                 <h2>Sửa tình trạng bình luận</h2>
-                <form action="<?= ADMIN_URL . '?ctl=updatestatusbl_sp&id=' . $comment['ID'] ?>" method="post" enctype="multipart/form-data">
+                <form action="<?= ADMIN_URL . '?ctl=updatestatusbl_bv&id=' . $comment['ID'] ?>" method="post" enctype="multipart/form-data">
                     <div class="form-group">
                         <input type="text" name="product_name" class="form-control"
-                            placeholder="Nhập tên sản phẩm ở đây" value="<?= $product['name'] ?>" disabled>
+                            placeholder="Nhập tên sản phẩm ở đây" value="<?= $articles['name'] ?>" disabled>
                     </div>
                     <div class="form-group">
                         <input type="text" name="account_name" class="form-control"
                             placeholder="Nhập tên tài khoản ở đây" value="<?= $account['user_name'] ?>" disabled>
-                    </div>
-                    <div class="form-group">
-                        <input type="text" name="rate" class="form-control"
-                            value="<?= $comment['rate'] ?>" disabled>
                     </div>
                     <div class="form-group">
                         <input type="radio" name="status" value="1" <?= $comment['status'] == 1 ? 'checked' : '' ?> id="">
@@ -136,7 +132,7 @@
                         <label for="status">Bị ẩn</label>
                     </div>
                     <div class="form-group">
-                        <textarea name="description" rows="6" class="form-control" disabled><?= $comment['description'] ?></textarea>
+                        <textarea name="description" rows="6" class="form-control" disabled><?= $comment['content'] ?></textarea>
                     </div>
                     <input type="hidden" name="id" value="<?= $comment['ID'] ?>">
 

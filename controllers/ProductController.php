@@ -20,10 +20,30 @@ class ProductController
             'client.products.category',
             compact('products', 'categories', 'title')
         );
-        
     }
+
+    public function listAll()
+    {
+        $id = $_GET['id']; //id danh mục
+        //Lấy sản phẩm theo danh mục
+        $products = (new Product)->allStatus1();
+
+        $title = '';
+        if ($products) {
+            $title = $products[0]['cate_name'];
+        }
+        //Lấy danh mục
+        $categories = (new Category)->all();
+
+        return view(
+            'client.products.list',
+            compact('products', 'categories', 'title')
+        );
+    }
+
     //Hiển thị chi tiết
-    public function show(){
+    public function show()
+    {
         //Lấy id của sp
         $id = $_GET['id'];
         //Lấy ra sp theo id
@@ -41,7 +61,7 @@ class ProductController
 
         return view(
             'client.products.detail',
-            compact('product','title','categories', 'totalQuantity')
+            compact('product', 'title', 'categories', 'totalQuantity')
         );
     }
 }

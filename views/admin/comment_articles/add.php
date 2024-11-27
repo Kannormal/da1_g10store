@@ -101,12 +101,7 @@
     <div class="row">
         <!-- Sidebar -->
         <div class="col-md-3 sidebar ">
-            <h3>Bình luận được sửa</h3>
-            <div class="info">
-                <h4>Số id: <?= $comment['ID'] ?></h4>
-                <h4>Tên sản phẩm: <?= $product['name'] ?></h4>
-                <h4>Tên tài khoản: <?= $account['user_name'] ?></h4>
-            </div>
+            <h3>Thêm bình luận mới</h3>
             <a href="<?= ADMIN_URL . '?ctl=listbl_sp' ?>">
                 <input type="button" value="Về Danh sách ->" class="btn button-not-dark-blue ">
             </a>
@@ -115,32 +110,36 @@
         <!-- Content -->
         <div class="col-md-9 content">
             <div class="forms">
-                <h2>Sửa tình trạng bình luận</h2>
-                <form action="<?= ADMIN_URL . '?ctl=updatestatusbl_sp&id=' . $comment['ID'] ?>" method="post" enctype="multipart/form-data">
+                <h2>Thêm Bình luận</h2>
+                <form action="<?= ADMIN_URL . '?ctl=storebl_bv' ?>" method="post" enctype="multipart/form-data">
                     <div class="form-group">
-                        <input type="text" name="product_name" class="form-control"
-                            placeholder="Nhập tên sản phẩm ở đây" value="<?= $product['name'] ?>" disabled>
+                        <select name="article_id" id="" class="form-control" placeholder="Nhập bài viết được bình luận ở đây">
+                            <?php foreach ($articles as $article): ?>
+                                <option value="<?= $article['ID'] ?>">
+                                    <?= $article['name'] ?>
+                                </option>
+                            <?php endforeach ?>
+                        </select>
                     </div>
                     <div class="form-group">
-                        <input type="text" name="account_name" class="form-control"
-                            placeholder="Nhập tên tài khoản ở đây" value="<?= $account['user_name'] ?>" disabled>
+                        <select name="account_id" id="" class="form-control" placeholder="Nhập tài khoản bình luận ở đây">
+                            <?php foreach ($accounts as $account): ?>
+                                <option value="<?= $account['ID'] ?>">
+                                    <?= $account['user_name'] ?>
+                                </option>
+                            <?php endforeach ?>
+                        </select>
                     </div>
                     <div class="form-group">
-                        <input type="text" name="rate" class="form-control"
-                            value="<?= $comment['rate'] ?>" disabled>
-                    </div>
-                    <div class="form-group">
-                        <input type="radio" name="status" value="1" <?= $comment['status'] == 1 ? 'checked' : '' ?> id="">
+                        <input type="radio" name="status" value="1" checked id="">
                         <label for="status">Được hiện</label>
-                        <input type="radio" name="status" value="0" <?= $comment['status'] == 0 ? 'checked' : '' ?> id="">
+                        <input type="radio" name="status" value="0" id="">
                         <label for="status">Bị ẩn</label>
                     </div>
                     <div class="form-group">
-                        <textarea name="description" rows="6" class="form-control" disabled><?= $comment['description'] ?></textarea>
+                        <textarea name="content" rows="6" class="form-control" placeholder="Nhập nội dung bình luận ở đây"></textarea>
                     </div>
-                    <input type="hidden" name="id" value="<?= $comment['ID'] ?>">
-
-                    <input type="submit" value="Sửa tình trạng bình luận ->" class="btn button-not-dark-blue ">
+                    <input type="submit" value="Thêm Bình luận ->" class="btn button-not-dark-blue ">
                 </form>
             </div>
         </div>
@@ -151,6 +150,7 @@
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
 
 
 <?php include_once ROOT_DIR . "views/admin/footer.php" ?>

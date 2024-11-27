@@ -69,6 +69,48 @@
             color: white;
             border: 1px solid white;
         }
+
+        .bg-primary-dark-blue {
+            background-color: #1F3A56 !important;
+        }
+
+        .button-not-dark-blue:hover {
+            background-color: #1F3A56;
+            color: white;
+        }
+
+        .button-not-dark-blue {
+            background-color: white;
+            color: #1F3A56;
+            border-radius: 7px;
+        }
+
+        .text-dark-blue {
+            color: #1F3A56;
+        }
+
+        .form-check-input:checked {
+            background-color: #1F3A56;
+            /* Màu nền khi chọn */
+            border-color: #1F3A56;
+            /* Màu viền khi chọn */
+
+        }
+
+        /* Thay đổi màu khi hover lên checkbox */
+        .form-check-input:hover {
+            border-color: #1F3A56;
+            /* Màu viền khi hover */
+        }
+
+        .custom20-radius {
+            border-radius: 20px;
+            /* Custom border-radius value */
+        }
+
+        .overflow_hidden {
+            overflow: hidden;
+        }
     </style>
 </head>
 
@@ -91,7 +133,7 @@
                             <a class="nav-link" href="<?= ROOT_URL ?>">Trang chủ</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="<?= ROOT_URL . '?ctl=category&id=2' ?>">Sản phẩm</a>
+                            <a class="nav-link" href="<?= ROOT_URL . '?ctl=product-list' ?>">Sản phẩm</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Giới thiệu</a>
