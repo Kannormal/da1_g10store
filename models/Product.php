@@ -88,4 +88,34 @@ class Product extends BaseModel
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
+
+    public function findByName($keyword)
+    {
+        $sql = "SELECT * FROM products WHERE name LIKE '%$keyword%' AND status = 1";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    public function find100k()
+    {
+        $sql = "SELECT * FROM products WHERE price<1000000 AND status = 1";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+    public function find1tr()
+    {
+        $sql = "SELECT * FROM `products` WHERE price BETWEEN 1000000 AND 9999999";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+    public function find10tr()
+    {
+        $sql = "SELECT * FROM products WHERE price>10000000 AND status = 1";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
 }

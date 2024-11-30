@@ -24,25 +24,29 @@ class ProductController
 
     public function listAll()
     {
-        //Lấy sản phẩm theo danh mục
-        $products = (new Product)->allStatus1();
-
-        $title = '';
-        if ($products) {
-            $title = $products[0]['cate_name'];
+        if (!isset($_POST['category_id'])) {
+            $_POST['category_id'] = 0;
         }
+
+        if (isset($_POST["search"])) {
+            $products = (new Product)->findByName($_POST["search"]);
+        } else {
+            $products = (new Product)->allStatus1();
+        }
+
         //Lấy danh mục
         $categories = (new Category)->all();
 
         return view(
             'client.products.list',
-            compact('products', 'categories', 'title')
+            compact('products', 'categories')
         );
     }
 
     //Hiển thị chi tiết
     public function show()
     {
+        $_POST = "";
         //Lấy id của sp
         $id = $_GET['id'];
         //Lấy ra sp theo id

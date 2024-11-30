@@ -5,15 +5,13 @@ class HomeController
     {
         //Lấy danh sách pets
         $product = new Product;
+        $article = new Articles;
         $products = $product->listProducts();
-        $list_products = $product->listOtherProduct();
-
-        //Danh mục
-        $categories = (new Category)->all();
+        $list_articles = $article->allhome4();
 
         return view(
             'client.home',
-            compact('products', 'list_products', 'categories')
+            compact('products', 'list_articles')
         );
     }
     public function register()

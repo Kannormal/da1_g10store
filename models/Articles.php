@@ -11,6 +11,24 @@ class Articles extends BaseModel
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
+    public function allhome()
+    {
+        //$sql = "SELECT p.*, c.cate_name FROM products p JOIN categories c ON p.category_id=c.id";
+        $sql = "SELECT a.*, ac.user_name FROM article a JOIN account ac ON a.account_id=ac.id WHERE a.status=1";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    public function allhome4()
+    {
+        //$sql = "SELECT p.*, c.cate_name FROM products p JOIN categories c ON p.category_id=c.id";
+        $sql = "SELECT a.*, ac.user_name FROM article a JOIN account ac ON a.account_id=ac.id WHERE a.status=1 LIMIT 4";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
     public function create($data)
     {
         var_dump($data);
