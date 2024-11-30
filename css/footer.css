@@ -1,0 +1,13 @@
+.menu-footer{
+    li{
+        list-style: none;
+        margin-bottom: 1rem;
+        a{
+            text-decoration: none;
+            /* color: #fff; */
+            &:hover{
+                color: yellow;
+            }
+        }
+    }
+}
