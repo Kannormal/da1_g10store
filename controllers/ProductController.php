@@ -37,9 +37,11 @@ class ProductController
         //Lấy danh mục
         $categories = (new Category)->all();
 
+        $articles = (new Articles)->Articlelist4();
+
         return view(
             'client.products.list',
-            compact('products', 'categories')
+            compact('products', 'categories', 'articles')
         );
     }
 
@@ -69,7 +71,14 @@ class ProductController
 
         return view(
             'client.products.detail',
-            compact('product', 'title', 'categories', 'totalQuantity', 'comments', 'images')
+            compact(
+                'product',
+                'title',
+                'categories',
+                'totalQuantity',
+                'comments',
+                'images'
+            )
         );
     }
 }

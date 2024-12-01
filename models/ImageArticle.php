@@ -55,4 +55,12 @@ class ImageArticle extends BaseModel
         $stmt->execute([':ID' => $id]);
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
+
+    public function findByArticle($id)
+    {
+        $sql = "SELECT ai.* , a.name FROM article_images ai JOIN article a ON ai.article_id=a.id WHERE ai.article_ID=:id AND ai.status=1;";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute([':id' => $id]);
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
 }

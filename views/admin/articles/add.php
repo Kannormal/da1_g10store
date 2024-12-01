@@ -118,7 +118,9 @@
                     <div class="form-group">
                         <textarea name="short" rows="6" class="form-control" placeholder="Nhập Mô tả ngắn gọn bài viết ở đây"></textarea>
                     </div>
-
+                    <div class=" form-group">
+                        <input type="file" name="image" id="" class="form-control">
+                    </div>
                     <div class="form-group">
                         <textarea name="content" rows="6" class="form-control" placeholder="Nhập nội dung bài viết ở đây"></textarea>
                     </div>

@@ -86,6 +86,35 @@
                 </main>
             </div>
         </div>
+        <div class="container-fluid py-4">
+            <div class="row">
+                <h2 style="font-size: 40px;margin:40px 0px;">Bài viết mới nhất</h2>
+                <!-- Main Content -->
+                <main class="col-lg-12 col-md-8 col-12">
+                    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
+                        <!-- Product Box -->
+                        <?php foreach ($articles as $article) : ?>
+                            <div class="col">
+                                <div class="card shadow-sm custom20-radius overflow_hidden">
+                                    <img src="<?= ROOT_URL . $article['image_src'] ?>"
+                                        style="width:100%;height:200px;object-fit:cover" class="card-img-top"
+                                        alt="Sản phẩm">
+                                    <div class="card-body d-flex flex-column">
+                                        <a href="<?= ROOT_URL . '?ctl=article_detail&id=' . $article['ID'] ?>" style="text-decoration: none;">
+                                            <h5 class="card-title"><?= $article['name'] ?></h5>
+                                        </a>
+                                        <p class="card-text text-danger"><?= $article['user_name'] ?></p>
+                                        <p class="card-text text-success"><?= $article['created_at'] ?></p>
+
+                                    </div>
+                                </div>
+                            </div>
+                        <?php endforeach ?>
+
+                    </div>
+                </main>
+            </div>
+        </div>
 
         <!-- Bootstrap JS -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>

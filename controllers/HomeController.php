@@ -7,11 +7,11 @@ class HomeController
         $product = new Product;
         $article = new Articles;
         $products = $product->listProducts();
-        $list_articles = $article->allhome4();
+        $articles = $article->Articlelist4();
 
         return view(
             'client.home',
-            compact('products', 'list_articles')
+            compact('products', 'articles')
         );
     }
     public function register()

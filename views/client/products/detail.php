@@ -40,6 +40,28 @@
         border-radius: 20px;
         padding: 15px 5%;
     }
+
+    .rateselector {
+        width: 15%;
+        height: 45px;
+        padding: 10px 2%;
+        border-radius: 20px;
+    }
+
+    .submitcomment {
+        width: 15%;
+        height: 45px;
+        padding: 10px 2%;
+        border-radius: 20px;
+        margin-top: 25px;
+        background-color: white;
+        color: #1F3A56;
+    }
+
+    .submitcomment:hover {
+        background-color: #1F3A56;
+        color: white;
+    }
 </style>
 
 <div class="container mt-5">
@@ -109,6 +131,37 @@
 
     <div class="row mt-5">
         <h2>Bình luận</h2>
+
+        <form action="?ctl=addbl_sp" method="post">
+            <div class="comment d-flex">
+                <div class="content">
+                    <h5 class="mb-3">Điểm đánh giá:</h5>
+                    <select name="rate" class="rateselector">
+                        <option value="1">1/5</option>
+                        <option value="2">2/5</option>
+                        <option value="3">3/5</option>
+                        <option value="4">4/5</option>
+                        <option value="5">5/5</option>
+                    </select>
+                    <div class="box">
+                        <h6>
+                            <textarea name="description" style="width: 100%" id="" placeholder="Nhập nội dung bình luận ở đây..."></textarea>
+                        </h6>
+                    </div>
+                    <input type="hidden" name="product_id" value="<?= $product['id'] ?>">
+                    <input type="hidden" name="account_id" value="3">
+                    <input type="date" hidden name="created_at" value="<?= date('Y-m-d') ?>">
+                    <input type="date" hidden name="updated_at" value="<?= date('Y-m-d') ?>">
+                    <input type="hidden" name="status" value="1">
+
+                    <button type="submit" class="submitcomment">Đăng bình luận</button>
+                </div>
+                <div class="account">
+                    <img src="img/dien-thoai-co-man-hinh-dep-nhat-xtmobile.jpg" alt="Avatar">
+                    <h5 class="mt-2">ADMIN1</h5>
+                </div>
+            </div>
+        </form>
         <div class="col">
             <?php
             foreach ($comments as $comment) : ?>

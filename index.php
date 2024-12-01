@@ -15,10 +15,13 @@ require_once __DIR__ . "/models/ImageArticle.php";
 
 date_default_timezone_set('Asia/Ho_Chi_Minh');
 
+require_once __DIR__ . "/controllers/CommentProductController.php";
+require_once __DIR__ . "/controllers/CommentArticleController.php";
 require_once __DIR__ . "/controllers/ProductController.php";
 require_once __DIR__ . "/controllers/HomeController.php";
 require_once __DIR__ . "/controllers/SearchController.php";
 require_once __DIR__ . "/controllers/CartController.php";
+require_once __DIR__ . "/controllers/ArticleController.php";
 
 $ctl = $_GET['ctl'] ?? '';
 
@@ -26,9 +29,13 @@ $ctl = $_GET['ctl'] ?? '';
 match ($ctl) {
     '', 'home' => (new HomeController)->index(),
     'product-list' => (new ProductController)->listAll(),
+    'article-list' => (new ArticleController)->listAll(),
+    'addbl_sp' => (new CommentProductController)->store(),
+    'addbl_bv' => (new CommentArticleController)->store(),
     'category' => (new ProductController)->list(),
     'search' => (new SearchController)->search(),
     'detail' => (new ProductController)->show(),
+    'article_detail' => (new ArticleController)->show(),
     'add-cart' => (new CartController)->addCart(),
     'register' => (new HomeController)->register(),
     'login' => (new HomeController)->login(),

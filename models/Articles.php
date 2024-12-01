@@ -11,7 +11,7 @@ class Articles extends BaseModel
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    public function allhome()
+    public function allStatus1()
     {
         //$sql = "SELECT p.*, c.cate_name FROM products p JOIN categories c ON p.category_id=c.id";
         $sql = "SELECT a.*, ac.user_name FROM article a JOIN account ac ON a.account_id=ac.id WHERE a.status=1";
@@ -32,7 +32,7 @@ class Articles extends BaseModel
     public function create($data)
     {
         var_dump($data);
-        $sql = "INSERT INTO article(name, short, account_id, content, status, category_id, created_at, update_at) VALUES(:name, :short, :account_id, :content, :status, :category_id, :created_at, :update_at)";
+        $sql = "INSERT INTO article(name, short, image_src, account_id, content, status, category_id, created_at, update_at) VALUES(:name, :short, :image, :account_id, :content, :status, :category_id, :created_at, :update_at)";
 
         $stmt = $this->conn->prepare($sql);
         $stmt->execute($data);
@@ -40,7 +40,7 @@ class Articles extends BaseModel
 
     public function Articlelist4()
     {
-        $sql = "SELECT p.*, c.cate_name FROM products p JOIN categories c ON p.category_id=c.id WHERE type=1 ORDER BY p.id DESC LIMIT 4";
+        $sql = "SELECT a.*, ac.user_name FROM article a JOIN account ac ON a.account_id=ac.id WHERE a.status=1 ORDER BY a.id DESC LIMIT 4";
         $stmt = $this->conn->prepare($sql);
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -48,7 +48,7 @@ class Articles extends BaseModel
     //Cập nhật
     public function update($id, $data)
     {
-        $sql = "UPDATE article SET name=:name,short=:short , content=:content, account_id=:account_id, category_id=:category_id, status=:status, created_at=:created_at, update_at=:update_at WHERE id=:id";
+        $sql = "UPDATE article SET name=:name,short=:short, image_src=:image, content=:content, account_id=:account_id, category_id=:category_id, status=:status, created_at=:created_at, update_at=:update_at WHERE id=:id";
 
         $stmt = $this->conn->prepare($sql);
         //thêm id và mảng data
@@ -59,9 +59,25 @@ class Articles extends BaseModel
     //lấy ra 1 bản ghi
     public function find($id)
     {
-        $sql = "SELECT * FROM article WHERE id=:id";
+        $sql = "SELECT a.*, ac.user_name FROM article a JOIN account ac ON a.account_id=ac.id WHERE a.id=:id";
         $stmt = $this->conn->prepare($sql);
         $stmt->execute(['id' => $id]);
         return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
+
+    public function search($keyword = null)
+    {
+        $sql = "SELECT * FROM article WHERE name LIKE '%$keyword%'";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    public function findByName($keyword)
+    {
+        $sql = "SELECT a.*, ac.user_name FROM article a JOIN account ac ON a.account_id=ac.id WHERE a.name LIKE '%$keyword%' AND status = 1";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 }

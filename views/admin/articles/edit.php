@@ -125,7 +125,11 @@
                             <?= $article['short'] ?>
                         </textarea>
                     </div>
+                    <img src="<?= ROOT_URL . $article['image_src'] ?>" width="150" alt=""> <br>
+                    <div class=" form-group">
+                        <input type="file" name="image" id="" class="form-control">
 
+                    </div>
                     <div class="form-group">
                         <textarea name="content" rows="6" class="form-control" placeholder="Nhập nội dung bài viết ở đây">
                             <?= $article['content'] ?>

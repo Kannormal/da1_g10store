@@ -4,7 +4,7 @@ class CommentProduct extends BaseModel
     //lấy toàn bộ sản phẩm
     public function all()
     {
-        $sql = "SELECT c.*, p.name, a.user_name FROM product_comments c JOIN products p ON c.product_id=p.id JOIN account a ON c.account_id=a.id";
+        $sql = "SELECT c.*, p.name, a.user_name FROM product_comments c JOIN products p ON c.product_id=p.id JOIN account a ON c.account_id=a.id ORDER BY c.created_at DESC";
         $stmt = $this->conn->prepare($sql);
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -13,7 +13,7 @@ class CommentProduct extends BaseModel
     public function create($data)
     {
         var_dump($data);
-        $sql = "INSERT INTO `product_comments` (`account_id`, `product_id`, `rate`, `description`, `status`) VALUES (:account_id, :product_id, :rate, :description, :status)";
+        $sql = "INSERT INTO `product_comments` (`account_id`, `product_id`, `rate`, `description`, `status`, `created_at`, `updated_at`) VALUES (:account_id, :product_id, :rate, :description, :status, :created_at, :updated_at)";
 
         $stmt = $this->conn->prepare($sql);
         $stmt->execute($data);

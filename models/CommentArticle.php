@@ -12,8 +12,7 @@ class CommentArticle extends BaseModel
     //Thêm dữ liệu
     public function create($data)
     {
-        var_dump($data);
-        $sql = "INSERT INTO `article_comments` (`account_id`, `article_id`, `content`, `status`) VALUES (:account_id, :article_id, :content, :status)";
+        $sql = "INSERT INTO `article_comments` (`account_id`, `article_id`, `content`, `status`, `created_at`, `update_at`) VALUES (:account_id, :article_id, :content, :status, :created_at, :updated_at)";
 
         $stmt = $this->conn->prepare($sql);
         $stmt->execute($data);
@@ -61,6 +60,14 @@ class CommentArticle extends BaseModel
         $sql = "SELECT * FROM products WHERE name LIKE '%$keyword%'";
         $stmt = $this->conn->prepare($sql);
         $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    public function findByArticle($id)
+    {
+        $sql = "SELECT c.*, a.name, ac.user_name, ac.image_src FROM article_comments c JOIN article a ON c.article_id=a.id JOIN account ac ON c.account_id=ac.id WHERE c.article_id=:id AND c.status=1;";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute([':id' => $id]);
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 }

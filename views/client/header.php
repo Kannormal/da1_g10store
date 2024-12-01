@@ -139,7 +139,7 @@
                             <a class="nav-link" href="#">Giới thiệu</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Tin tức</a>
+                            <a class="nav-link" href="<?= ROOT_URL . '?ctl=article-list' ?>">Tin tức</a>
                         </li>
                     </ul>
                 </div>
@@ -160,39 +160,41 @@
 
 </html>
 
-<body>
-    <header>
-        <div class="container">
-            <nav class="navbar navbar-expand-lg bg-body-tertiary">
-                <div class="container-fluid">
-                    <a class="navbar-brand" href="<?= ROOT_URL ?>">
-                        <img src="img/Logo.png" alt="" height="60px" width="60px">
-                    </a>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                            <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="<?= ROOT_URL ?>">Trang chủ</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="<?= ROOT_URL . '?ctl=category&id=2' ?>">Sản phẩm</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Giỏ hàng (<?= $totalQuantity ?>) </a>
-                            </li>
+<!--<body> 
+<header>
+    <div class="container">
+        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="<?= ROOT_URL ?>">
+                    <img src="img/Logo.png" alt="" height="60px" width="60px">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="<?= ROOT_URL ?>">Trang chủ</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="<?= ROOT_URL . '?ctl=category&id=2' ?>">Sản phẩm</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Giỏ hàng (<?= $totalQuantity ?>) </a>
+                        </li>
 
-                        </ul>
-                        <form class="d-flex" role="search">
-                            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" id="keyword">
-                            <button class="btn btn-outline-success" type="button" id="search">Search</button>
-                        </form>
-                        <div class="buttons">
-                            <a href="<?= ROOT_URL . '?ctl=login' ?>">Đăng nhập</a>
-                            <a href="<?= ROOT_URL . '?ctl=register' ?>" class="a2">Đăng ký</a>
-                        </div>
+                    </ul>
+                    <form class="d-flex" role="search">
+                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" id="keyword">
+                        <button class="btn btn-outline-success" type="button" id="search">Search</button>
+                    </form>
+                    <div class="buttons">
+                        <a href="<?= ROOT_URL . '?ctl=login' ?>">Đăng nhập</a>
+                        <a href="<?= ROOT_URL . '?ctl=register' ?>" class="a2">Đăng ký</a>
                     </div>
                 </div>
-            </nav>
-    </header>
+            </div>
+        </nav>
+</header>
+
+-->

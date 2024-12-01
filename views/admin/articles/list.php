@@ -61,6 +61,7 @@
                     <th scope="col">#ID</th>
                     <th scope="col">Name</th>
                     <th scope="col">Short</th>
+                    <th scope="col">Image</th>
                     <th scope="col">Content</th>
                     <th scope="col">Status</th>
                     <th scope="col">Category</th>
@@ -76,6 +77,9 @@
                         <th scope="row"><?= $article['ID'] ?></th>
                         <td><?= $article['name'] ?></td>
                         <td><?= $article['short'] ?></td>
+                        <td>
+                            <img src="<?= ROOT_URL . $article['image_src'] ?>" width="60" alt="">
+                        </td>
                         <td><?= $article['content'] ?></td>
                         <td><?= $article['status'] ? 'Được hiện' : 'Bị Ẩn' ?></td>
                         <td><?= $article['cate_name'] ?></td>
